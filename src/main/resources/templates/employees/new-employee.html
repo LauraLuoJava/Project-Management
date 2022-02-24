@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts::header"></head>
+
+<body>
+
+<nav th:replace="layouts::navbar"></nav>
+
+<div class="container">
+    <form action="/employees/save" th:object="${employee}" method="POST">
+        <input type="hidden" th:field="${employee.employeeId}"/>
+        <br>
+        <div class="form-group row">
+            <input type="text" placeholder="First Name" th:field="${employee.firstName}">
+            <span style="color:red" th:if="${#fields.hasErrors('firstName')}"
+                  th:errors="${employee.firstName}">
+            </span>
+        </div>
+        <br>
+        <div class="form-group row">
+            <input type="text" placeholder="Last Name" th:field="${employee.lastName}">
+            <span style="color:red" th:if="${#fields.hasErrors('lastName')}"
+                  th:errors="${employee.lastName}">
+            </span>
+        </div>
+        <br>
+        <div class="form-group row">
+            <input type="text" placeholder="Email Address" th:field="${employee.email}">
+            <span style="color:red" th:if="${#fields.hasErrors('email')}"
+                  th:errors="${employee.email}">
+            </span>
+        </div>
+        <br>
+        <div class="four-group row">
+            <select th:field="*{projects}" multiple="multiple">
+                <option th:each="project : ${allProjects}"
+                        th:value="${project.projectId}"
+                        th:text="${project.name}">
+                </option>
+            </select>
+        </div>
+        <br>
+        <button class="btn btn-info col-2" type="submit">Enter Employee</button>
+    </form>
+</div>
+
+</body>
+
+</html>
