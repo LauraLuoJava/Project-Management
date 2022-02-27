@@ -15,3 +15,7 @@ Spring Security
 RESTful API
 
 AWS ECS + Docker + AWS RDS
+
+designed by online course:
+
+https://www.jobreadyprogrammer.com/courses/master-spring-framework-5-boot-2-spring-web/lectures/11313899
